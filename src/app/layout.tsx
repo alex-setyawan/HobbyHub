@@ -1,10 +1,12 @@
+import Navbar from "@/components/Navbar";
 import "./globals.css";
 import { Inter } from "next/font/google";
+import { cn } from "@/lib/utils";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "HobbyHub App",
+  title: "HobbyHub",
 };
 
 export default function RootLayout({
@@ -13,11 +15,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body
-        className={`${inter.className} bg-slate-800 text-slate-100 container mx-auto p-4`}
-      >
-        {children}
+    <html
+      lang="en"
+      className={cn(
+        "bg-white text-slate-900 antialiased light",
+        inter.className
+      )}
+    >
+      <body className="min-h-screen pt-12 bg-slate-50 antialiased">
+        <Navbar />
+
+        <div className="container max-w-7xl mx-auto h-full pt-12">
+          {children}
+        </div>
       </body>
     </html>
   );

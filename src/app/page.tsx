@@ -1,12 +1,10 @@
 import ImgRedirect from "@/components/ImgRedirect";
-import Navbar from "@/components/Navbar";
 import Archery from "../assets/images/archery.jpg";
 import AllTopics from "@/components/AllTopics";
 
 export default function Home() {
   return (
     <>
-      <Navbar />
       <h1>Topics</h1>
       <p>
         Which one <u>interests</u> you today?
