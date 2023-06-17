@@ -29,8 +29,8 @@ export default function Home() {
       <AllTopics />
 
       <div>
-        {/* change page.tsx file in @/app/anytopic */}
-        <Link href="/anytopic" className={buttonVariants()}>
+        {/* change page.tsx file in @/app/newTopic */}
+        <Link href="/newTopic" className={buttonVariants()}>
           ADD YOUR OWN
         </Link>
       </div>
