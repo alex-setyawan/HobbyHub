@@ -1,6 +1,8 @@
 import ImgRedirect from "@/components/ImgRedirect";
 import Archery from "../assets/images/archery.jpg";
 import AllTopics from "@/components/AllTopics";
+import { buttonVariants } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -27,7 +29,10 @@ export default function Home() {
       <AllTopics />
 
       <div>
-        <a href="anytopic.html">ADD YOUR OWN</a>
+        {/* change page.tsx file in @/app/newTopic */}
+        <Link href="/newTopic" className={buttonVariants()}>
+          ADD YOUR OWN
+        </Link>
       </div>
     </>
   );
