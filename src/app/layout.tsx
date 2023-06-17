@@ -22,6 +22,14 @@ export default function RootLayout({
         inter.className
       )}
     >
+      <head>
+        <link
+          rel="icon"
+          href="/icon?<generated>"
+          type="image/<generated>"
+          sizes="<generated>"
+        />
+      </head>
       <body className="min-h-screen pt-12 bg-slate-50 antialiased">
         <Navbar />
 
