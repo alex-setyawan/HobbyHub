@@ -1,8 +1,11 @@
 import Link from "next/link";
 import { ICONS } from "./Icons";
 import { buttonVariants } from "./ui/button";
+import { getAuthSession } from "@/lib/auth";
 
-export default function Navbar() {
+const Navbar = async () => {
+  const session = await getAuthSession();
+
   return (
     <>
       <div className="fixed top-0 inset-x-0 h-fit bg-zinc-100 border-b border-zinc-300 z-[10] py-2">
@@ -16,16 +19,22 @@ export default function Navbar() {
           </Link>
 
           {/* Log In/Sign Up */}
-          <div className="flex gap-4">
-            <Link href="/sign-in" className={buttonVariants()}>
-              Log In
-            </Link>
-            <Link href="/sign-in" className={buttonVariants()}>
-              Sign Up
-            </Link>
-          </div>
+          {session ? (
+            <p>Welcome {session.user.name}!</p>
+          ) : (
+            <div className="flex gap-4">
+              <Link href="/log-in" className={buttonVariants()}>
+                Log In
+              </Link>
+              <Link href="/sign-up" className={buttonVariants()}>
+                Sign Up
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </>
   );
-}
+};
+
+export default Navbar;
