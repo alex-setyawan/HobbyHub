@@ -1,7 +1,7 @@
 "use client";
 
 import { FC } from "react";
-import { Button } from "./ui/button";
+import { Button } from "./ui/Button";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 import { signIn } from "next-auth/react";
@@ -10,7 +10,7 @@ import { useToast } from "@/hooks/use-toast";
 
 interface AuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 
-const AuthForm: FC<AuthFormProps> = ({ className, ...props }) => {
+export default function AuthForm({ className, ...props }: AuthFormProps) {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const { toast } = useToast();
 
@@ -44,6 +44,4 @@ const AuthForm: FC<AuthFormProps> = ({ className, ...props }) => {
       </Button>
     </div>
   );
-};
-
-export default AuthForm;
+}

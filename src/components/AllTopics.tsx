@@ -2,7 +2,7 @@ import TopicLine from "./TopicLine";
 import TESTDATA from "@/components/TESTDATA";
 
 export default function AllTopics() {
-  return TESTDATA.map(topic => {
+  return TESTDATA.map((topic) => {
     return (
       <>
         <TopicLine
@@ -12,7 +12,7 @@ export default function AllTopics() {
           lastPostDate={topic.lastPostDate}
         />
         <br></br>
-      </>)
-    }
-  )
+      </>
+    );
+  });
 }

@@ -2,7 +2,7 @@ import { ICONS } from "@/components/Icons";
 import Link from "next/link";
 import AuthForm from "@/components/AuthForm";
 
-const SignIn = () => {
+export default function LogIn() {
   return (
     <div className="container mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[400px]">
       <div className="flex flex-col space-y-2 text-center">
@@ -18,7 +18,7 @@ const SignIn = () => {
       <p className="px-8 text-center text-sm text-muted-foreground">
         New to HobbyHub?{" "}
         <Link
-          href="/log-in"
+          href="/sign-up"
           className="hover:text-brand text-sm underline underline-offset-4"
         >
           Sign Up
@@ -26,6 +26,4 @@ const SignIn = () => {
       </p>
     </div>
   );
-};
-
-export default SignIn;
+}

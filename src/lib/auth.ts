@@ -10,7 +10,7 @@ export const authOptions: NextAuthOptions = {
     strategy: "jwt",
   },
   pages: {
-    signIn: "/sign-in",
+    signIn: "/log-in",
   },
   providers: [
     GoogleProvider({
@@ -62,6 +62,7 @@ export const authOptions: NextAuthOptions = {
         username: dbUser.username,
       };
     },
+
     redirect() {
       return "/";
     },

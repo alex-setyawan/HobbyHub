@@ -2,7 +2,7 @@ import Post from "./Post";
 import TESTDATA2 from "@/components/TESTDATA2";
 
 export default function AllTopics() {
-  return TESTDATA2.map(post => {
+  return TESTDATA2.map((post) => {
     return (
       <>
         <Post
@@ -13,7 +13,7 @@ export default function AllTopics() {
           /* comments={post.comments} */
         />
         <br></br>
-      </>)
-    }
-  )
+      </>
+    );
+  });
 }

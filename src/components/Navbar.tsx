@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { ICONS } from "./Icons";
-import { buttonVariants } from "./ui/button";
+import { buttonVariants } from "./ui/Button";
 import { getAuthSession } from "@/lib/auth";
+import UserNav from "./UserNav";
 
-const Navbar = async () => {
+export default async function Navbar() {
   const session = await getAuthSession();
 
   return (
@@ -19,8 +20,8 @@ const Navbar = async () => {
           </Link>
 
           {/* Log In/Sign Up */}
-          {session ? (
-            <p>Welcome {session.user.name}!</p>
+          {session?.user ? (
+            <UserNav user={session.user} />
           ) : (
             <div className="flex gap-4">
               <Link href="/log-in" className={buttonVariants()}>
@@ -35,6 +36,4 @@ const Navbar = async () => {
       </div>
     </>
   );
-};
-
-export default Navbar;
+}
