@@ -1,8 +1,8 @@
 import TopicLine from "./TopicLine";
-import TESTDATA from "@/components/TESTDATA";
+import { testdata } from "@/components/TESTDATA";
 
 export default function AllTopics() {
-  return TESTDATA.map((topic) => {
+  return testdata.topicData.map((topic) => {
     return (
       <>
         <TopicLine
