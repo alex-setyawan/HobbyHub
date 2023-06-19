@@ -1,7 +1,7 @@
 import ImgRedirect from "@/components/ImgRedirect";
 import Archery from "../assets/images/archery.jpg";
 import AllTopics from "@/components/AllTopics";
-import { buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/Button";
 import Link from "next/link";
 
 export default function Home() {
