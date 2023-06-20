@@ -1,6 +1,3 @@
-import ImgRedirect from "@/components/ImgRedirect";
-import Archery from "../assets/images/archery.jpg";
-import AllTopics from "@/components/AllTopics";
 import { buttonVariants } from "@/components/ui/Button";
 import Link from "next/link";
 import { HomeIcon } from "lucide-react";
