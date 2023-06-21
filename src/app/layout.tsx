@@ -1,9 +1,9 @@
-import Navbar from "@/components/Navbar";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/Toaster";
 import Providers from "@/components/Providers";
+import Navbar from "@/components/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -36,6 +36,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen pt-12 bg-slate-50 antialiased">
         <Providers>
+          {/* @ts-expect-error Server Component */}
           <Navbar />
 
           {authModal}
