@@ -1,4 +1,5 @@
 import CreatePost from "@/components/CreatePost";
+import PostFeed from "@/components/PostFeed";
 import { PAGES_FETCH_LIMIT } from "@/config";
 import { getAuthSession } from "@/lib/auth";
 import { prisma } from "@/lib/db";
@@ -36,7 +37,7 @@ export default async function Page({ params }: PageProps) {
     <>
       <h1 className="font-bold text-3xl md:text-4xl h-14">{topic.name}</h1>
       <CreatePost session={session} />
-      {/* TODO: Show post in user feed */}
+      <PostFeed initialPosts={topic.posts} topicName={topic.name} />
     </>
   );
 }
