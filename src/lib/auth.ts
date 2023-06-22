@@ -1,4 +1,4 @@
-import { prisma } from "@/app/db";
+import { prisma } from "@/lib/db";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { nanoid } from "nanoid";
 import { NextAuthOptions, getServerSession } from "next-auth";
