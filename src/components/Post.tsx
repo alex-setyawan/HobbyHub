@@ -3,6 +3,9 @@ import { Post, User, Vote } from "@prisma/client";
 import { MessageSquare } from "lucide-react";
 import { useRef } from "react";
 import PostContent from "./PostContent";
+import PostVoteClient from "./post-vote/PostVoteClient";
+
+type PartialVote = Pick<Vote, "type">;
 
 type PostPreviewProps = {
   topicName: string;
@@ -11,17 +14,26 @@ type PostPreviewProps = {
     votes: Vote[];
   };
   commentAmt: number;
+  votesAmt: number;
+  currentVote?: PartialVote;
 };
 
 export default function PostPreview({
   topicName,
   post,
   commentAmt,
+  votesAmt,
+  currentVote,
 }: PostPreviewProps) {
   const postRef = useRef<HTMLDivElement>(null);
   return (
     <div className="rounded-md bg-white shadow">
       <div className="px-6 py-4 flex justify-between">
+        <PostVoteClient
+          initialVotesAmt={votesAmt}
+          postId={post.id}
+          initialVote={currentVote?.type}
+        />
         <div className="w-0 flex-1">
           <div className="max-h-40 mt-1 text-xs text-gray-500">
             {topicName ? (

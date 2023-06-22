@@ -26,6 +26,9 @@ export default async function Page({ params }: PageProps) {
           comments: true,
           topic: true,
         },
+        orderBy: {
+          createdAt: "desc",
+        },
         take: PAGES_FETCH_LIMIT,
       },
     },
