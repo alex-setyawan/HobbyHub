@@ -59,11 +59,21 @@ export default function PostFeed({ initialPosts, topicName }: PostFeedProps) {
         if (index === posts.length - 1) {
           return (
             <li key={post.id} ref={ref}>
-              <Post />
+              <Post
+                topicName={post.topic.name}
+                post={post}
+                commentAmt={post.comments.length}
+              />
             </li>
           );
         } else {
-          return <Post />;
+          return (
+            <Post
+              topicName={post.topic.name}
+              post={post}
+              commentAmt={post.comments.length}
+            />
+          );
         }
       })}
     </ul>
