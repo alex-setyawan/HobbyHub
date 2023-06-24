@@ -1,1 +1,1 @@
-export const PAGES_FETCH_LIMIT = 2;
+export const PAGES_FETCH_LIMIT = 3;

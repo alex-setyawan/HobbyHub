@@ -20,6 +20,9 @@ export default async function Page({ params }: PageProps) {
     where: { name: slug },
     include: {
       posts: {
+        orderBy: {
+          createdAt: "desc",
+        },
         include: {
           author: true,
           votes: true,
