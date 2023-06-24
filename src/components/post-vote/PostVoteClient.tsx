@@ -106,7 +106,7 @@ export default function PostVoteClient({
           "text-emerald-500": currentVote === "DOWN",
         })}
         variant="ghost"
-        aria-label="upvote"
+        aria-label="downvote"
       >
         <ArrowBigDown
           className={cn("h-5 w-5 text-zinc-700", {

@@ -101,7 +101,7 @@ export default function CommentVote({
           "text-emerald-500": currentVote?.type === "DOWN",
         })}
         variant="ghost"
-        aria-label="upvote"
+        aria-label="downvote"
       >
         <ArrowBigDown
           className={cn("h-5 w-5 text-zinc-700", {
