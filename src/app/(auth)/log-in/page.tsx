@@ -1,8 +1,8 @@
+import LogIn from "@/components/LogIn";
 import { buttonVariants } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
-import LogIn from "@/components/LogIn";
 import { ChevronLeft } from "lucide-react";
+import Link from "next/link";
 
 export default function page() {
   return (

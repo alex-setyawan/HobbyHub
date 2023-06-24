@@ -1,9 +1,9 @@
-import { buttonVariants } from "@/components/ui/Button";
-import Link from "next/link";
-import { HomeIcon } from "lucide-react";
-import { getAuthSession } from "@/lib/auth";
-import GeneralFeed from "@/components/GeneralFeed";
 import CustomFeed from "@/components/CustomFeed";
+import GeneralFeed from "@/components/GeneralFeed";
+import { buttonVariants } from "@/components/ui/Button";
+import { getAuthSession } from "@/lib/auth";
+import { HomeIcon } from "lucide-react";
+import Link from "next/link";
 
 export default async function Home() {
   const session = await getAuthSession();

@@ -1,5 +1,5 @@
-import { prisma } from "@/lib/db";
 import { PAGES_FETCH_LIMIT } from "@/config";
+import { prisma } from "@/lib/db";
 import PostFeed from "./PostFeed";
 
 export default async function GeneralFeed() {

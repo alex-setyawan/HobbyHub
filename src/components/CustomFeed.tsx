@@ -1,8 +1,8 @@
-import { prisma } from "@/lib/db";
 import { PAGES_FETCH_LIMIT } from "@/config";
-import PostFeed from "./PostFeed";
 import { getAuthSession } from "@/lib/auth";
+import { prisma } from "@/lib/db";
 import { notFound } from "next/navigation";
+import PostFeed from "./PostFeed";
 
 export default async function CustomFeed() {
   const session = await getAuthSession();

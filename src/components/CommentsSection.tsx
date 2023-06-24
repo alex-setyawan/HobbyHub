@@ -1,8 +1,7 @@
 import { getAuthSession } from "@/lib/auth";
 import { prisma } from "@/lib/db";
-import { CommentVote, User } from "@prisma/client";
-import PostComment from "./PostComment";
 import CreateComment from "./CreateComment";
+import PostComment from "./PostComment";
 
 type CommentsSectionProps = {
   postId: string;

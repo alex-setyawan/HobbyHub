@@ -2,14 +2,13 @@
 
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
+import { useAuthToast } from "@/hooks/use-auth-toast";
+import { toast } from "@/hooks/use-toast";
+import { CreateTopicPayload } from "@/lib/validators/topic";
 import { useMutation } from "@tanstack/react-query";
+import axios, { AxiosError } from "axios";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import axios, { Axios, AxiosError } from "axios";
-import { CreateTopicPayload } from "@/lib/validators/topic";
-import { toast } from "@/hooks/use-toast";
-import { useAuthToast } from "@/hooks/use-auth-toast";
-import { log } from "console";
 
 export default function Page() {
   const [input, setInput] = useState<string>("");

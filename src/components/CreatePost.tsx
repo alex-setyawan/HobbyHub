@@ -1,11 +1,11 @@
 "use client";
 
-import { Session } from "next-auth";
-import UserAvatar from "./UserAvatar";
-import { Input } from "./ui/Input";
-import { usePathname, useRouter } from "next/navigation";
-import { Button } from "./ui/Button";
 import { ImageIcon, Link2 } from "lucide-react";
+import { Session } from "next-auth";
+import { usePathname, useRouter } from "next/navigation";
+import UserAvatar from "./UserAvatar";
+import { Button } from "./ui/Button";
+import { Input } from "./ui/Input";
 
 type CreatePostProps = {
   session: Session | null;

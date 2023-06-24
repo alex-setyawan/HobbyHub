@@ -1,9 +1,9 @@
+import { getAuthSession } from "@/lib/auth";
 import Link from "next/link";
 import { ICONS } from "./Icons";
-import { buttonVariants } from "./ui/Button";
-import { getAuthSession } from "@/lib/auth";
-import UserNav from "./UserNav";
 import SearchBar from "./SearchBar";
+import UserNav from "./UserNav";
+import { buttonVariants } from "./ui/Button";
 
 export default async function Navbar() {
   const session = await getAuthSession();
