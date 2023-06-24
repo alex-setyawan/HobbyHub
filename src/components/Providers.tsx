@@ -3,9 +3,9 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { SessionProvider } from "next-auth/react";
 
-export default function Providers({ children }: { children: React.ReactNode }) {
-  const queryClient = new QueryClient();
+const queryClient = new QueryClient();
 
+export default function Providers({ children }: { children: React.ReactNode }) {
   return (
     <QueryClientProvider client={queryClient}>
       <SessionProvider>{children}</SessionProvider>

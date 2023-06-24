@@ -28,7 +28,7 @@ export default function PostFeed({ initialPosts, topicName }: PostFeedProps) {
     async ({ pageParam = 1 }) => {
       const query =
         `/api/posts?limit=${PAGES_FETCH_LIMIT}&page=${pageParam}` +
-        (!!topicName ? `&subredditName=${topicName}` : "");
+        (!!topicName ? `&topicName=${topicName}` : "");
 
       const { data } = await axios.get(query);
       return data as ExtendedPost[];
@@ -77,6 +77,7 @@ export default function PostFeed({ initialPosts, topicName }: PostFeedProps) {
         } else {
           return (
             <Post
+              key={post.id}
               currentVote={currentVote}
               votesAmt={votesAmt}
               topicName={post.topic.name}
