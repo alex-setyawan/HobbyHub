@@ -13,3 +13,5 @@ export async function middleware(req: NextRequest) {
 export const config = {
   matcher: ["/topic/:path*/submit", "/topic/create"],
 };
+
+console.log("middleware triggered");
