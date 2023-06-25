@@ -69,7 +69,7 @@ export default function SearchBar() {
         }}
         className="outline-none border-none focus:border-none focus:outline-none ring-0"
         placeholder="Search communities..."
-        isLoading={false}
+        isLoading={isFetching}
       />
 
       {input.length > 0 && (
