@@ -1,8 +1,11 @@
+import { Button } from "@/components/ui/button";
+
 type TopicLineProps = {
   poster: string;
   content: string;
   netLikes: number;
   numComments: number;
+  comments: Array<String>;
 };
 
 export default function TopicLine({
@@ -17,6 +20,7 @@ export default function TopicLine({
       <p>{content}</p>
       <p>Likes: {netLikes}</p>
       <p>Comments: {numComments}</p>
+      <Button>COMMENT</Button>
       {/* <p>{comments}</p> */}
     </div>
   );

@@ -30,7 +30,7 @@ export default function Home() {
 
       <div>
         {/* change page.tsx file in @/app/newTopic */}
-        <Link href="/newTopic" className={buttonVariants()}>
+        <Link href="/new-topic" className={buttonVariants()}>
           ADD YOUR OWN
         </Link>
       </div>

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 type TopicLineProps = {
   image: string;
   topic: string;
@@ -14,7 +16,7 @@ export default function TopicLine({
   return (
     <div className="topic-line">
       <img src={image} />
-      <h3>{topic}</h3>
+      <Link href="/new-topic">{topic}</Link>
       <p>Posts: {numOfPosts}</p>
       <p>Updated: {lastPostDate}</p>
     </div>

@@ -64,4 +64,21 @@ export const testdata = {
       numComments: 3,
     },
   ],
+
+  productData: [
+    {
+      image: "",
+      name: "Something Useful Hopefully",
+      price: 5.99,
+      rating: 3.5,
+      quantitySold: 123,
+    },
+    {
+      image: "",
+      name: "Something Else Useful",
+      price: 10.99,
+      rating: 1.5,
+      quantitySold: 345,
+    }
+  ]
 };
