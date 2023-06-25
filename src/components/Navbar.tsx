@@ -1,8 +1,9 @@
+import { getAuthSession } from "@/lib/auth";
 import Link from "next/link";
 import { ICONS } from "./Icons";
-import { buttonVariants } from "./ui/Button";
-import { getAuthSession } from "@/lib/auth";
+import SearchBar from "./SearchBar";
 import UserNav from "./UserNav";
+import { buttonVariants } from "./ui/Button";
 
 export default async function Navbar() {
   const session = await getAuthSession();
@@ -18,6 +19,9 @@ export default async function Navbar() {
               HobbyHub
             </p>
           </Link>
+
+          {/* search bar */}
+          <SearchBar />
 
           {/* Log In/Sign Up */}
           {session?.user ? (

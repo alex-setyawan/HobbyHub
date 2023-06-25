@@ -1,11 +1,10 @@
+import LogIn from "@/components/LogIn";
 import { buttonVariants } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
-import { FC } from "react";
-import LogIn from "@/components/LogIn";
 import { ChevronLeft } from "lucide-react";
+import Link from "next/link";
 
-const page: FC = () => {
+export default function page() {
   return (
     <div className="absolute inset-0">
       <div className="h-full max-w-2xl mx-auto flex flex-col items-center justify-center gap-20">
@@ -24,6 +23,4 @@ const page: FC = () => {
       </div>
     </div>
   );
-};
-
-export default page;
+}

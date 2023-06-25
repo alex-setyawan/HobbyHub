@@ -1,8 +1,9 @@
 import Navbar from "@/components/Navbar";
-import "./globals.css";
-import { Inter } from "next/font/google";
-import { cn } from "@/lib/utils";
+import Providers from "@/components/Providers";
 import { Toaster } from "@/components/ui/Toaster";
+import { cn } from "@/lib/utils";
+import "@/styles/globals.css";
+import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -34,14 +35,16 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen pt-12 bg-slate-50 antialiased">
-        <Navbar />
+        <Providers>
+          {/* @ts-expect-error Server Component */}
+          <Navbar />
 
-        {authModal}
+          {authModal}
 
-        <div className="container max-w-7xl mx-auto h-full pt-12">
-          {children}
-        </div>
-
+          <div className="container max-w-7xl mx-auto h-full pt-12">
+            {children}
+          </div>
+        </Providers>
         <Toaster />
       </body>
     </html>
