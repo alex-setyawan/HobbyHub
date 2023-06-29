@@ -10,19 +10,19 @@ export default function LogIn() {
           By continuing, you are setting up a HobbyHub account and agree to our
           User Agreement and Privacy Policy.
         </p>
+
+        <AuthForm />
+
+        <p className="px-8 text-center text-sm text-muted-foreground">
+          New to HobbyHub?{" "}
+          <Link
+            href="/sign-up"
+            className="hover:text-zinc-800 text-sm underline underline-offset-4"
+          >
+            Sign Up
+          </Link>
+        </p>
       </div>
-
-      <AuthForm />
-
-      <p className="px-8 text-center text-sm text-muted-foreground">
-        New to HobbyHub?{" "}
-        <Link
-          href="/sign-up"
-          className="hover:text-brand text-sm underline underline-offset-4"
-        >
-          Sign Up
-        </Link>
-      </p>
     </div>
   );
 }

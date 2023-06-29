@@ -19,7 +19,6 @@ export default function AuthForm({ className, ...props }: AuthFormProps) {
     try {
       await signIn("google");
     } catch (error) {
-      // toast notification
       toast({
         title: "There was a problem.",
         description: "There was an error logging in with Google.",
