@@ -106,7 +106,7 @@ export default function SubscribeLeaveToggle({
       onClick={() => subscribe()}
       className="w-full mt-1 mb-4"
     >
-      Join to post
+      Join community
     </Button>
   );
 }
