@@ -12,16 +12,16 @@ export async function PATCH(req: Request) {
     }
 
     const body = await req.json();
-    const { name } = UsernameValidator.parse(body);
+    const { name, teleHandle, bio } = UsernameValidator.parse(body);
 
     // check if username is taken
-    const username = await prisma.user.findFirst({
+    const user = await prisma.user.findFirst({
       where: {
         username: name,
       },
     });
-
-    if (username) {
+    
+    if (user && (user.id !== session.user.id)) {
       return new Response("Username is taken", { status: 409 });
     }
 
@@ -32,6 +32,8 @@ export async function PATCH(req: Request) {
       },
       data: {
         username: name,
+        teleHandle: teleHandle,
+        bio: bio,
       },
     });
 

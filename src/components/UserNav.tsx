@@ -12,7 +12,7 @@ import Link from "next/link";
 import { signOut } from "next-auth/react";
 
 interface UserNavProps extends React.HTMLAttributes<HTMLDivElement> {
-  user: Pick<User, "name" | "image" | "email">;
+  user: Pick<User, "name" | "image" | "email" | "id">;
 }
 
 export default function UserNav({ user }: UserNavProps) {
@@ -44,7 +44,7 @@ export default function UserNav({ user }: UserNavProps) {
             <Link href="/">Home</Link>
           </DropdownMenuItem>
           <DropdownMenuItem asChild>
-            <Link href="/settings">Settings</Link>
+            <Link href={`/settings/${user.id}`}>Settings</Link>
           </DropdownMenuItem>
 
           <DropdownMenuSeparator />

@@ -6,6 +6,7 @@ import { prisma } from "@/lib/db";
 import { format } from "date-fns";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { BsFillBagFill } from 'react-icons/bs';
 
 export default async function Layout({
   children,
@@ -100,11 +101,31 @@ export default async function Layout({
               <Link
                 className={buttonVariants({
                   variant: "outline",
-                  className: "w-full mb-6",
+                  className: "w-full mb-4",
                 })}
                 href={`/topic/${slug}/submit`}
               >
                 Create Post
+              </Link>
+
+              <Link
+                className={buttonVariants({
+                  variant: "shop",
+                  className: "w-full mb-4",
+                })}
+                href={`/topic/${slug}/shop`}
+              >
+                <BsFillBagFill />&nbsp;SHOP
+              </Link>
+
+              <Link
+                className={buttonVariants({
+                  variant: "upload",
+                  className: "w-full mb-6",
+                })}
+                href={`/topic/${slug}/shop/upload`}
+              >
+                Upload Item
               </Link>
             </dl>
           </div>

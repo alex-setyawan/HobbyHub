@@ -19,12 +19,14 @@ import { useRouter } from "next/navigation";
 import { useMutation } from "@tanstack/react-query";
 import axios, { AxiosError } from "axios";
 import { toast } from "@/hooks/use-toast";
+import TextareaAutosize from "react-textarea-autosize";
 
 type UserNameFormProps = {
-  user: Pick<User, "id" | "username">;
+  user: Pick<User, "id" | "username" | "teleHandle" | "email" | "bio">;
+  canEdit: boolean;
 };
 
-export default function UserNameForm({ user }: UserNameFormProps) {
+export default function UserNameForm({ user, canEdit }: UserNameFormProps) {
   const router = useRouter();
 
   const {
@@ -35,16 +37,20 @@ export default function UserNameForm({ user }: UserNameFormProps) {
     resolver: zodResolver(UsernameValidator),
     defaultValues: {
       name: user?.username || "",
+      teleHandle: user?.teleHandle || "",
+      email: user?.email!,
+      bio: user?.bio || "",
     },
   });
 
   const { mutate: updateUsername, isLoading } = useMutation({
-    mutationFn: async ({ name }: UsernameRequest) => {
-      const payload: UsernameRequest = { name };
+    mutationFn: async ({ name, teleHandle, email, bio }: UsernameRequest) => {
+      const payload: UsernameRequest = { name, teleHandle, email, bio };
 
       const { data } = await axios.patch(`/api/username/`, payload);
       return data;
     },
+
     onError: (err) => {
       if (err instanceof AxiosError) {
         if (err.response?.status === 409) {
@@ -58,25 +64,28 @@ export default function UserNameForm({ user }: UserNameFormProps) {
 
       return toast({
         title: "Something went wrong.",
-        description: "Your username was not updated. Please try again.",
+        description: "Your profile was not updated. Please try again.",
         variant: "destructive",
       });
     },
+
     onSuccess: () => {
       toast({
-        description: "Your username has been updated.",
+        description: "Your profile has been updated.",
       });
       router.refresh();
     },
   });
 
+  // username, telegram handle, email address, bio
   return (
     <form onSubmit={handleSubmit((e) => updateUsername(e))}>
       <Card>
+        {/* username */}
         <CardHeader>
-          <CardTitle>Your username</CardTitle>
+          <CardTitle>Username</CardTitle>
           <CardDescription>
-            Please enter a display name you are comfortable with.
+            Enter a display name you are comfortable with
           </CardDescription>
         </CardHeader>
 
@@ -85,10 +94,6 @@ export default function UserNameForm({ user }: UserNameFormProps) {
             <div className="absolute top-0 left-0 w-8 h-10 grid place-items-center">
               <span className="text-sm text-zinc-400"></span>
             </div>
-
-            <Label className="sr-only" htmlFor="name">
-              Name
-            </Label>
 
             <Input
               id="name"
@@ -103,9 +108,84 @@ export default function UserNameForm({ user }: UserNameFormProps) {
           </div>
         </CardContent>
 
-        <CardFooter>
-          <Button isLoading={isLoading}>Change name</Button>
-        </CardFooter>
+        {/* telegram handle */}
+        <CardHeader>
+          <CardTitle>Telegram Handle</CardTitle>
+          <CardDescription>
+            For prospective buyers to reach you
+          </CardDescription>
+        </CardHeader>
+
+        <CardContent>
+          <div className="relative grid gap-1">
+            <div className="absolute top-0 left-0 w-8 h-10 grid place-items-center">
+              <span className="text-sm text-zinc-400"></span>
+            </div>
+
+            <Input
+              id="name"
+              className="w-[400px]"
+              size={32}
+              {...register("teleHandle")}
+            />
+          </div>
+        </CardContent>
+
+        {/* email address */}
+        <CardHeader>
+          <CardTitle>Email Address</CardTitle>
+        </CardHeader>
+
+        <CardContent>
+          <div className="relative grid gap-1">
+            <div className="absolute top-0 left-0 w-8 h-10 grid place-items-center">
+              <span className="text-sm text-zinc-400"></span>
+            </div>
+
+            <Input
+              id="name"
+              className="w-[400px]"
+              size={32}
+              {...register("email")}
+            />
+          </div>
+        </CardContent>
+
+        {/* bio */}
+        <CardHeader>
+          <CardTitle>Bio</CardTitle>
+          <CardDescription>
+            Tell us a little about yourself!
+          </CardDescription>
+        </CardHeader>
+
+        <CardContent>
+          <div className="relative grid gap-1">
+            <div className="absolute top-0 left-0 w-8 h-10 grid place-items-center">
+              <span className="text-sm text-zinc-400"></span>
+            </div>
+
+            <div className="w-full p-4 bg-zinc-50 rounded-lg border border-zinc-200">
+              <form>
+                <div className="prose prose-stone dark:prose-invert">
+                  <TextareaAutosize
+                    placeholder="Tap here to fill"
+                    className="w-full resize-none appearance-none overflow-hidden bg-transparent text-base focus:outline-none"
+                    {...register("bio")}
+                  />
+
+                  <div id="editor" className="min-h-[100px]" />
+                </div>
+              </form>
+            </div>
+          </div>
+        </CardContent>
+
+        {canEdit ?
+          <CardFooter>
+            <Button isLoading={isLoading}>SAVE ALL</Button>
+          </CardFooter>
+        : null}
       </Card>
     </form>
   );

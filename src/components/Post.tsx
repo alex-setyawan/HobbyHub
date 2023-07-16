@@ -4,6 +4,7 @@ import { MessageSquare } from "lucide-react";
 import { useRef } from "react";
 import PostContent from "./PostContent";
 import PostVoteClient from "./post-vote/PostVoteClient";
+import Link from "next/link";
 
 type PartialVote = Pick<Vote, "type">;
 
@@ -47,7 +48,15 @@ export default function PostPreview({
                 <span className="px-1">•</span>
               </>
             ) : null}
-            <span>Posted by {post.author.username}</span>{" "}
+            <span>
+              Posted by&nbsp;
+              <Link
+                className="font-bold"
+                href={`/settings/${post.author.id}`}
+              >
+                {post.author.username}
+              </Link>
+            </span>{" "}
             {formatTimeToNow(new Date(post.createdAt))}
           </div>
           <a href={`/topic/${topicName}/post/${post.id}`}>

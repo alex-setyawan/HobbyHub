@@ -9,6 +9,9 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default: "bg-zinc-900 text-zinc-100 hover:bg-zinc-800",
+        shop: "text-white bg-cyan-500 hover:bg-cyan-700",
+        upload: "text-white bg-sky-500 hover:bg-sky-700",
+        cart: "text-white bg-teal-500 hover:bg-teal-700",
         destructive: "text-white hover:bg-red-600 dark:hover:bg-red-600",
         outline:
           "bg-zinc-100 text-zinc-900 hover:bg-zinc-200 outline outline-1 outline-zinc-300",
