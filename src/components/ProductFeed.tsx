@@ -1,3 +1,5 @@
+/*
+
 "use client";
 
 import { PAGES_FETCH_LIMIT } from "@/config";
@@ -98,7 +100,7 @@ export default function PostFeed({ initialPosts, topicName }: PostFeedProps) {
   );
 }
 
-/* adapted for product feed but runtime error
+/* adapted for product feed but runtime error */
 
 "use client";
 
@@ -154,7 +156,7 @@ export default function ProductFeed({ initialProducts, topicName }: ProductFeedP
 
   return (
     <ul className="flex flex-col col-span-2 space-y-6">
-      {products.map((product, index) => {
+      {products ? products.map((product, index) => {
         
         if (index === products.length - 1) {
           return (
@@ -174,7 +176,7 @@ export default function ProductFeed({ initialProducts, topicName }: ProductFeedP
             />
           );
         }
-      })}
+      }) : null}
 
       {isFetchingNextPage && (
         <li className="flex justify-center">
@@ -184,5 +186,3 @@ export default function ProductFeed({ initialProducts, topicName }: ProductFeedP
     </ul>
   );
 }
-
-*/

@@ -15,6 +15,7 @@ import { useMutation } from "@tanstack/react-query";
 import { CommentRequest } from "@/lib/validators/comment";
 import axios from "axios";
 import { toast } from "@/hooks/use-toast";
+import Link from "next/link";
 
 type ExtendedComment = Comment & {
   votes: CommentVote[];
@@ -73,7 +74,12 @@ export default function Comment({
 
         <div className="ml-2 flex items-center gap-x-2">
           <p className="text-sm font-medium text-gray-900">
-            {comment.author.username}
+            <Link
+              className="font-bold"
+              href={`/settings/${comment.author.id}`}
+            >
+              {comment.author.username}
+            </Link>
           </p>
 
           <p className="max-h-40 truncate text-xs text-zinc-500">

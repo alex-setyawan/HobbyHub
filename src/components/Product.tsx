@@ -1,3 +1,5 @@
+/*
+
 import { formatTimeToNow } from "@/lib/utils";
 import { Post, User, Vote } from "@prisma/client";
 import { MessageSquare } from "lucide-react";
@@ -79,13 +81,14 @@ export default function PostPreview({
   );
 }
 
-/* adapted for product but runtime error
+/* adapted for product but runtime error */
 
 import { formatTimeToNow } from "@/lib/utils";
 import { Product, User } from "@prisma/client";
 import { MessageSquare } from "lucide-react";
 import { useRef } from "react";
 import PostContent from "./PostContent";
+import Link from "next/link";
 
 type ProductPreviewProps = {
   topicName: string;
@@ -102,11 +105,13 @@ export default function ProductPreview({
   return (
     <div className="rounded-md bg-white shadow">
       <div className="px-6 py-4 flex justify-between">
+        {/*
         <PostVoteClient             // DELETE THIS COMPONENT
           initialVotesAmt={votesAmt}
           postId={post.id}
           initialVote={currentVote?.type}
         />
+        */}
         <div className="w-0 flex-1">
           <div className="max-h-40 mt-1 text-xs text-gray-500">
             {topicName ? (
@@ -120,7 +125,15 @@ export default function ProductPreview({
                 <span className="px-1">•</span>
               </>
             ) : null}
-            <span>Posted by {product.poster.username}</span>{" "}
+            <span>
+              Posted by&nbsp;
+              <Link
+                className="font-bold"
+                href={`/settings/${product.poster.id}`}
+              >
+                {product.poster.username}
+              </Link>
+            </span>{" "}
             {formatTimeToNow(new Date(product.createdAt))}
           </div>
           <a href={`/topic/${topicName}/shop/${product.id}`}>
@@ -145,11 +158,9 @@ export default function ProductPreview({
           href={`/topic/${topicName}/shop/${product.id}`}
           className="w-fit flex items-center gap-2"
         >
-          <MessageSquare className="h-4 w-4" /> comments // NUMBER OF COMMENTS
+          <MessageSquare className="h-4 w-4" /> {/* NUMBER OF */} comments
         </a>
       </div>
     </div>
   );
 }
-
-*/

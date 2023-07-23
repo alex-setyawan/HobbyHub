@@ -107,7 +107,7 @@ export default async function Layout({
               >
                 Create Post
               </Link>
-
+{/*
               <Link
                 className={buttonVariants({
                   variant: "shop",
@@ -126,7 +126,7 @@ export default async function Layout({
                 href={`/topic/${slug}/shop/upload`}
               >
                 Upload Item
-              </Link>
+              </Link> */}
             </dl>
           </div>
         </div>

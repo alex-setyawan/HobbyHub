@@ -10,3 +10,13 @@ export const PostValidator = z.object({
 });
 
 export type PostCreationRequest = z.infer<typeof PostValidator>;
+
+export const ProductValidator = z.object({
+  topicId: z.string(),
+  title: z.string(),
+  price: z.number(),
+  content: z.any(),
+  qtySold: z.number(),
+});
+
+export type ProductCreationRequest = z.infer<typeof ProductValidator>;

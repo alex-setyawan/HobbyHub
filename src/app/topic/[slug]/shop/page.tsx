@@ -1,3 +1,4 @@
+/*
 import PostFeed from "@/components/PostFeed";
 import { PAGES_FETCH_LIMIT } from "@/config";
 import { getAuthSession } from "@/lib/auth";
@@ -43,7 +44,7 @@ export default async function Page({ params }: PageProps) {
   );
 }
 
-/* adapted for shop page but runtime error
+adapted for shop page but runtime error */
 
 import ProductFeed from "@/components/ProductFeed";
 import { PAGES_FETCH_LIMIT } from "@/config";
@@ -70,7 +71,6 @@ export default async function Page({ params }: PageProps) {
           createdAt: "desc",
         },
         include: {
-          // topic, title, price, rating, qtySold
           topic: true,
           rating: true,
           poster: true,
@@ -89,5 +89,3 @@ export default async function Page({ params }: PageProps) {
     </>
   );
 }
-
-*/

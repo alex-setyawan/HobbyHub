@@ -26,11 +26,11 @@ export default async function Navbar() {
           {/* Log In/Sign Up */}
           {session?.user ? (
             <div className="flex gap-4">
-            <Link href="/wishlist" className={buttonVariants({
+            {/* <Link href="/wishlist" className={buttonVariants({
               variant: "cart",
             })}>
               WISHLIST
-            </Link>
+            </Link> */}
             <UserNav user={session.user} />
           </div>
           ) : (
@@ -41,11 +41,13 @@ export default async function Navbar() {
               <Link href="/sign-up" className={buttonVariants()}>
                 Sign Up
               </Link>
+              {/*
               <Link href="/wishlist" className={buttonVariants({
                 variant: "cart",
               })}>
                 WISHLIST
               </Link>
+              */}
             </div>
           )}
         </div>

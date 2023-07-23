@@ -8,7 +8,6 @@ export const metadata = {
 };
 */
 export default async function Wishlist() {
-  
   const session = await getAuthSession();
 
   if (!session?.user) {

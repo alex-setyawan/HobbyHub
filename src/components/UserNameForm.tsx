@@ -46,7 +46,6 @@ export default function UserNameForm({ user, canEdit }: UserNameFormProps) {
   const { mutate: updateUsername, isLoading } = useMutation({
     mutationFn: async ({ name, teleHandle, email, bio }: UsernameRequest) => {
       const payload: UsernameRequest = { name, teleHandle, email, bio };
-
       const { data } = await axios.patch(`/api/username/`, payload);
       return data;
     },
@@ -84,9 +83,11 @@ export default function UserNameForm({ user, canEdit }: UserNameFormProps) {
         {/* username */}
         <CardHeader>
           <CardTitle>Username</CardTitle>
-          <CardDescription>
-            Enter a display name you are comfortable with
-          </CardDescription>
+          {canEdit ?
+            <CardDescription>
+              Enter a display name you are comfortable with
+            </CardDescription>
+          : null}
         </CardHeader>
 
         <CardContent>
@@ -111,9 +112,11 @@ export default function UserNameForm({ user, canEdit }: UserNameFormProps) {
         {/* telegram handle */}
         <CardHeader>
           <CardTitle>Telegram Handle</CardTitle>
-          <CardDescription>
-            For prospective buyers to reach you
-          </CardDescription>
+          {canEdit ?
+            <CardDescription>
+              For prospective buyers to reach you
+            </CardDescription>
+          : null}
         </CardHeader>
 
         <CardContent>
@@ -154,9 +157,11 @@ export default function UserNameForm({ user, canEdit }: UserNameFormProps) {
         {/* bio */}
         <CardHeader>
           <CardTitle>Bio</CardTitle>
-          <CardDescription>
-            Tell us a little about yourself!
-          </CardDescription>
+          {canEdit ?
+            <CardDescription>
+              Tell us a little about yourself!
+            </CardDescription>
+          : null}
         </CardHeader>
 
         <CardContent>
@@ -169,7 +174,7 @@ export default function UserNameForm({ user, canEdit }: UserNameFormProps) {
               <form>
                 <div className="prose prose-stone dark:prose-invert">
                   <TextareaAutosize
-                    placeholder="Tap here to fill"
+                    placeholder={canEdit ? "Tap here to fill" : undefined}
                     className="w-full resize-none appearance-none overflow-hidden bg-transparent text-base focus:outline-none"
                     {...register("bio")}
                   />
